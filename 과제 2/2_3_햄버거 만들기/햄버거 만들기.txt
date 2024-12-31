@@ -1,0 +1,21 @@
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int solution(vector<int> ingredient) {
+    int answer = 0;
+    
+    string search = "";
+    
+    for (int i = 0; i < ingredient.size(); i++) {
+        search += to_string(ingredient[i]);
+        
+        if (search.size() >= 4 && search.substr(search.size() - 4) == "1231") {
+            search.erase(search.size() - 4);
+            answer++;
+        }
+    }
+    
+    return answer;
+}
