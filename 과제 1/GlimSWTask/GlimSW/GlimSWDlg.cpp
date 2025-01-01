@@ -260,8 +260,15 @@ void CGlimSWDlg::actionCir(float& fSttX, float& fSttY, float fOneactionX, float 
 	DeleteObject(hBrush);
 
 	m_image.ReleaseDC();
-	
-	if (fSttX < (float)m_nEndX && fSttY < (float)m_nEndY) {
+
+	fSttX += fOneactionX;
+	fSttY += fOneactionY;
+	if (fOneactionX > 0 && fSttX > m_nEndX) fSttX = m_nEndX;
+	if (fOneactionX < 0 && fSttX < m_nEndX) fSttX = m_nEndX;
+	if (fOneactionY > 0 && fSttY > m_nEndY) fSttY = m_nEndY;
+	if (fOneactionY < 0 && fSttY < m_nEndY) fSttY = m_nEndY;
+
+	/*if (fSttX < (float)m_nEndX && fSttY < (float)m_nEndY) {
 		fSttX += fOneactionX;
 		fSttY += fOneactionY;
 
@@ -296,7 +303,7 @@ void CGlimSWDlg::actionCir(float& fSttX, float& fSttY, float fOneactionX, float 
 			fSttX = (float)m_nEndX;
 			fSttY = (float)m_nEndY;
 		}
-	}
+	}*/
 
 	CClientDC dc(this);
 	m_image.Draw(dc, 0, 0);
