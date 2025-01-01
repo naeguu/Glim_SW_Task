@@ -264,8 +264,8 @@ void CGlimSWDlg::actionCir(float& fSttX, float& fSttY, float fOneactionX, float 
 	fSttX += fOneactionX;
 	fSttY += fOneactionY;
 	if (fOneactionX > 0 && fSttX > m_nEndX) fSttX = m_nEndX;
-	if (fOneactionY > 0 && fSttY > m_nEndY) fSttY = m_nEndY;
 	if (fOneactionX < 0 && fSttX < m_nEndX) fSttX = m_nEndX;
+	if (fOneactionY > 0 && fSttY > m_nEndY) fSttY = m_nEndY;
 	if (fOneactionY < 0 && fSttY < m_nEndY) fSttY = m_nEndY;
 
 	/*if (fSttX < (float)m_nEndX && fSttY < (float)m_nEndY) {
