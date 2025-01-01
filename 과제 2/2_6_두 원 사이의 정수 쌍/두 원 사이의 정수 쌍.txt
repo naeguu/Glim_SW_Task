@@ -1,0 +1,28 @@
+#include <string>
+#include <vector>
+#include <cmath>
+
+using namespace std;
+
+long long solution(int r1, int r2) {
+    long long answer = 0;
+    
+    int smally = 0;
+    int bigY = 0;
+    
+    for (int i = 1; i < r2; i++) {
+        bigY = floor(sqrt(pow((long long)r2, 2) - pow((long long)i, 2)));
+        
+        if (r1 > i) {
+            smally = ceil(sqrt(pow((long long)r1, 2) - pow((long long)i, 2)));
+        }
+        else
+            smally = 1;
+        
+        answer += (bigY - smally + 1);
+    }
+    
+    answer = (answer + r2 - r1 + 1) * 4;
+    
+    return answer;
+}
